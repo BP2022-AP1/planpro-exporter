@@ -8,38 +8,40 @@ class EdgeXML(object):
     def get_top_edge_xml(edge: Edge):
         connection_a = "Ende"
         if len(edge.node_a.connected_nodes) > 1:
-            connection_a = edge.node_a.get_anschluss_of_other(edge.node_b).name
+            connection_a = edge.node_a.get_anschluss_for_edge(edge).name
+                    
         connection_b = "Ende"
         if len(edge.node_b.connected_nodes) > 1:
-            connection_b = edge.node_b.get_anschluss_of_other(edge.node_a).name
+            connection_b = edge.node_b.get_anschluss_for_edge(edge).name
+        
         return f"            <TOP_Kante> <!-- {edge.node_a} to {edge.node_b} -->\n" \
-               + f"              <Identitaet>\n" \
-               + f"                <Wert>{edge.uuid}</Wert>\n" \
-               + f"              </Identitaet>\n" \
-               + f"              <Basis_Objekt_Allg>\n" \
-               + f"                <Datum_Regelwerk>\n" \
-               + f"                  <Wert>2012-02-24</Wert>\n" \
-               + f"                </Datum_Regelwerk>\n" \
-               + f"              </Basis_Objekt_Allg>\n" \
-               + f"              <Objektreferenzen/>\n" \
-               + f"              <ID_TOP_Knoten_A>\n" \
-               + f"                <Wert>{edge.node_a.uuid}</Wert> <!-- {edge.node_a} -->\n" \
-               + f"              </ID_TOP_Knoten_A>\n" \
-               + f"              <ID_TOP_Knoten_B>\n" \
-               + f"                <Wert>{edge.node_b.uuid}</Wert> <!-- {edge.node_b} -->\n" \
-               + f"              </ID_TOP_Knoten_B>\n" \
-               + f"              <TOP_Kante_Allg>\n" \
-               + f"                <TOP_Anschluss_A>\n" \
-               + f"                  <Wert>{connection_a}</Wert>\n" \
-               + f"                </TOP_Anschluss_A>\n" \
-               + f"                <TOP_Anschluss_B>\n" \
-               + f"                  <Wert>{connection_b}</Wert>\n" \
-               + f"                </TOP_Anschluss_B>\n" \
-               + f"                <TOP_Laenge>\n" \
-               + f"                  <Wert>{edge.length:.3f}</Wert>\n" \
-               + f"                </TOP_Laenge>\n" \
-               + f"              </TOP_Kante_Allg>\n" \
-               + f"            </TOP_Kante>\n"
+            + f"              <Identitaet>\n" \
+            + f"                <Wert>{edge.uuid}</Wert>\n" \
+            + f"              </Identitaet>\n" \
+            + f"              <Basis_Objekt_Allg>\n" \
+            + f"                <Datum_Regelwerk>\n" \
+            + f"                  <Wert>2012-02-24</Wert>\n" \
+            + f"                </Datum_Regelwerk>\n" \
+            + f"              </Basis_Objekt_Allg>\n" \
+            + f"              <Objektreferenzen/>\n" \
+            + f"              <ID_TOP_Knoten_A>\n" \
+            + f"                <Wert>{edge.node_a.uuid}</Wert> <!-- {edge.node_a} -->\n" \
+            + f"              </ID_TOP_Knoten_A>\n" \
+            + f"              <ID_TOP_Knoten_B>\n" \
+            + f"                <Wert>{edge.node_b.uuid}</Wert> <!-- {edge.node_b} -->\n" \
+            + f"              </ID_TOP_Knoten_B>\n" \
+            + f"              <TOP_Kante_Allg>\n" \
+            + f"                <TOP_Anschluss_A>\n" \
+            + f"                  <Wert>{connection_a}</Wert>\n" \
+            + f"                </TOP_Anschluss_A>\n" \
+            + f"                <TOP_Anschluss_B>\n" \
+            + f"                  <Wert>{connection_b}</Wert>\n" \
+            + f"                </TOP_Anschluss_B>\n" \
+            + f"                <TOP_Laenge>\n" \
+            + f"                  <Wert>{edge.length:.3f}</Wert>\n" \
+            + f"                </TOP_Laenge>\n" \
+            + f"              </TOP_Kante_Allg>\n" \
+            + f"            </TOP_Kante>\n"
 
     @staticmethod
     def get_geo_edge_xml(geo_node_a: GeoNode, geo_node_b: GeoNode, uuid, top_edge: Edge):
