@@ -60,16 +60,16 @@ class SignalXML(object):
              + f"              </Punkt_Objekt_TOP_Kante>" + "\n" \
              + f"              <Bezeichnung>" + "\n" \
              + f"                <Bezeichnung_Aussenanlage>" + "\n" \
-             + f"                  <Wert>{signal.classification_number}{signal.name}</Wert>" + "\n" \
+             + f"                  <Wert>{signal.name}</Wert>" + "\n" \
              + f"                </Bezeichnung_Aussenanlage>" + "\n" \
              + f"                <Bezeichnung_Lageplan_Kurz>" + "\n" \
              + f"                  <Wert>{signal.name}</Wert>" + "\n" \
              + f"                </Bezeichnung_Lageplan_Kurz>" + "\n" \
              + f"                <Bezeichnung_Lageplan_Lang>" + "\n" \
-             + f"                  <Wert>{signal.classification_number}{signal.name}</Wert>" + "\n" \
+             + f"                  <Wert>{signal.name}</Wert>" + "\n" \
              + f"                </Bezeichnung_Lageplan_Lang>" + "\n" \
              + f"                <Bezeichnung_Tabelle>" + "\n" \
-             + f"                  <Wert>{signal.classification_number}{signal.name}</Wert>" + "\n" \
+             + f"                  <Wert>{signal.name}</Wert>" + "\n" \
              + f"                </Bezeichnung_Tabelle>" + "\n" \
              + f"                <Kennzahl>" + "\n" \
              + f"                  <Wert>{signal.classification_number}</Wert>" + "\n" \
